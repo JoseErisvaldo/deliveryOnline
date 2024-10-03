@@ -1,3 +1,4 @@
+import SideCart from '@/components/layout/cart/sideCart';
 import Establishment from '@/components/layout/establishment/establishment';
 import Button from '@/components/ui/button/button';
 import Input from '@/components/ui/input/input';
@@ -11,6 +12,7 @@ import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 export default function Restaurants() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SideCart />
       <div className=" flex h-14 items-center">
         <Button
           className="mr-4"
@@ -63,15 +65,6 @@ export default function Restaurants() {
           </div>
         </div>
         <Establishment />
-        <div className="flex justify-center items-center space-x-2 mt-8">
-          <Button variant="outline" size="icon">
-            <ChevronLeft className="h-4 w-4" />
-          </Button>
-
-          <Button variant="outline" size="icon">
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </div>
       </div>
     </div>
   );
