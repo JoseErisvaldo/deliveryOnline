@@ -147,8 +147,7 @@ export default function RestauranteDetalhes() {
         </div>
       </div>
 
-      <div className="fixed bottom-15 right-4">
-      </div>
+      <div className="fixed bottom-15 right-4"></div>
     </div>
   );
 }

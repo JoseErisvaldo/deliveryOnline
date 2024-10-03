@@ -2,7 +2,6 @@ import SideCart from '@/components/layout/cart/sideCart';
 import Category from '@/components/layout/category/category';
 import Cover from '@/components/layout/cover/cover';
 import Establishment from '@/components/layout/establishment/establishment';
-import Footer from '@/components/layout/footer/footer';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
