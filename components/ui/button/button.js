@@ -9,17 +9,17 @@ export default function Button({
   let bgClasses = '';
 
   switch (bgType) {
-    case "blue":
-      bgClasses = "bg-blue-600 hover:bg-blue-500 text-white";
+    case 'blue':
+      bgClasses = 'bg-blue-600 hover:bg-blue-500 text-white';
       break;
-    case "red":
-      bgClasses = "bg-red-600 hover:bg-red-500 text-white";
+    case 'red':
+      bgClasses = 'bg-red-600 hover:bg-red-500 text-white';
       break;
-      case "yellow":
-      bgClasses = "bg-yellow-600 hover:bg-yellow-500 text-black";
+    case 'yellow':
+      bgClasses = 'bg-yellow-600 hover:bg-yellow-500 text-black';
       break;
     default:
-      bgClasses = "bg-gray-600 hover:bg-gray-500 text-white";
+      bgClasses = 'bg-gray-600 hover:bg-gray-500 text-white';
       break;
   }
   return (
