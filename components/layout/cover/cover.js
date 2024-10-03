@@ -8,11 +8,11 @@ export default function Cover() {
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
             <h1 className="text-3xl font-bold tracking-tighter text-white sm:text-4xl md:text-5xl lg:text-6xl">
-              Realize seu pedido agora !! 
+              Realize seu pedido agora !!
             </h1>
             <p className="mx-auto max-w-[700px] text-white md:text-xl">
-              Os melhores estabelecimento com os melhores preços, entregues na sua
-              porta.
+              Os melhores estabelecimento com os melhores preços, entregues na
+              sua porta.
             </p>
           </div>
           <div className="w-full max-w-sm space-y-2">
