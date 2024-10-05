@@ -12,7 +12,6 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
-  // Função para login de usuário
   async function login(email, password) {
     console.log({ email, password });
     try {
@@ -34,7 +33,6 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Função para criar conta (registro)
   async function signUp(email, password, name) {
     console.log({ email, password, name });
     try {
@@ -42,7 +40,7 @@ export function AuthProvider({ children }) {
         email,
         password,
         options: {
-          data: { full_name: name }, // Armazenando o nome do usuário
+          data: { full_name: name },
         },
       });
 
@@ -59,11 +57,10 @@ export function AuthProvider({ children }) {
     }
   }
 
-  // Função para logout
   async function logout() {
     try {
       await supabase.auth.signOut();
-      setUser(null); // Limpa o estado do usuário
+      setUser(null);
     } catch (error) {
       console.error('Error during logout:', error.message);
     }
