@@ -9,17 +9,23 @@ import Label from '@/components/ui/label/label';
 import { useAuth } from '@/components/context/auth/auth';
 
 export default function Auth() {
-  const { login } = useAuth();
+  const { login, signUp } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [activeTab, setActiveTab] = useState('login');
 
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    login({ email, password });
+
+    if (activeTab === 'login') {
+      login(email, password);
+    } else if (activeTab === 'register') {
+      signUp(email, password, name);
+    }
   };
 
   return (
@@ -37,27 +43,21 @@ export default function Auth() {
             </div>
           </div>
 
-          {/* Tabs de Login e Registro */}
           <div className="flex justify-between mb-4">
             <button
-              className={`w-full py-2 text-center ${
-                activeTab === 'login' ? 'border-b-2 border-black' : ''
-              }`}
+              className={`w-full py-2 text-center ${activeTab === 'login' ? 'border-b-2 border-black' : ''}`}
               onClick={() => setActiveTab('login')}
             >
               Login
             </button>
             <button
-              className={`w-full py-2 text-center ${
-                activeTab === 'register' ? 'border-b-2 border-black' : ''
-              }`}
+              className={`w-full py-2 text-center ${activeTab === 'register' ? 'border-b-2 border-black' : ''}`}
               onClick={() => setActiveTab('register')}
             >
               Criar Conta
             </button>
           </div>
 
-          {/* Formulário de Login */}
           {activeTab === 'login' && (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
@@ -100,17 +100,21 @@ export default function Auth() {
               </Button>
             </form>
           )}
-
-          {/* Formulário de Registro */}
           {activeTab === 'register' && (
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Nome completo</Label>
-                <Input id="name" placeholder="Seu nome" required />
+                <Input
+                  onChange={(e) => setName(e.target.value)}
+                  id="name"
+                  placeholder="Seu nome"
+                  required
+                />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="email-register">Email</Label>
                 <Input
+                  onChange={(e) => setEmail(e.target.value)}
                   id="email-register"
                   type="email"
                   placeholder="seu@email.com"
@@ -124,6 +128,7 @@ export default function Auth() {
                     id="password-register"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="••••••••"
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                   />
                   <Button
@@ -146,42 +151,6 @@ export default function Auth() {
               </Button>
             </form>
           )}
-
-          {/* Login via Redes Sociais */}
-          <div className="flex flex-col space-y-4 mt-4">
-            <div className="relative w-full">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
-                  Ou continue com
-                </span>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Button variant="outline">
-                <Image
-                  src="/placeholder.svg?height=24&width=24&text=G"
-                  width={24}
-                  height={24}
-                  alt="Google logo"
-                  className="mr-2"
-                />
-                Google
-              </Button>
-              <Button variant="outline">
-                <Image
-                  src="/placeholder.svg?height=24&width=24&text=F"
-                  width={24}
-                  height={24}
-                  alt="Facebook logo"
-                  className="mr-2"
-                />
-                Facebook
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
