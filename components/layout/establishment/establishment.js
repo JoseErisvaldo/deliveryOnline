@@ -1,7 +1,7 @@
 import { fetchSupabase } from '@/pages/api/base/GET/fetchSupabase';
 import { Heart } from 'lucide-react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react'; // Adicione esta linha
+import { useState, useEffect } from 'react';
 
 export default function Establishment() {
   const [establishments, setEstablishments] = useState([]);
@@ -15,7 +15,6 @@ export default function Establishment() {
           '/rest/v1/view_establishment',
           'select=*'
         );
-        console.log(data);
         setEstablishments(data);
       } catch (error) {
         setError(error.message);

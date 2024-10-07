@@ -15,7 +15,7 @@ export default function Home() {
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-bold mb-4">Restaurantes próximos</h2>
           <Link
-            href={'/restaurants/restaurants'}
+            href={'/establishments/establishments'}
             className=" text-2xl cursor-pointer"
           >
             <ArrowRight />
