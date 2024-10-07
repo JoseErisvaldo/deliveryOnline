@@ -1,4 +1,4 @@
-import axiosClient from "@/lib/axiosClient";
+import axiosClient from '@/lib/axiosClient';
 
 export const fetchSupabaseID = async (id = null, api) => {
   try {
